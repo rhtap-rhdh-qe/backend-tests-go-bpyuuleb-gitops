@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: backend-tests-go-bpyuuleb-gitops
+  description: This is GitOps manifest for backend-tests-go-bpyuuleb   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=backend-tests-go-bpyuuleb
+    backstage.io/kubernetes-id: backend-tests-go-bpyuuleb 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: backend-tests-go-bpyuuleb-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:backend-tests-go-bpyuuleb
